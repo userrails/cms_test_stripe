@@ -1,0 +1,113 @@
+<%= f.hidden_field :stripe_card_token %>
+
+    <div class="row">
+      <div class="col-lg-12" style="background: #79AE3D;border:1px solid black;color:#ffffff;height:40px;">
+        <h4>Customer Information</h4>
+      </div>
+    </div><br/>
+
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="form-group">
+          <%= f.label  :first_name %>
+          <%= f.text_field :first_name,:class=>"form-control" %>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="form-group">
+          <%= f.label  :last_name %>
+          <%= f.text_field :last_name,:class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label  :address, "Street Address" %>
+          <%= f.text_field :address,:class=>"form-control" %>
+        </div>
+      </div>
+
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label  :email, "Email" %>
+          <%= f.text_field :email,:class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="form-group">
+          <%= f.label  :dob, "Date of Birth" %>
+          <%= f.text_field :dob %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="form-group">
+          <%= f.label  :amount %>
+          <%= f.text_field :amount,:class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12" style="background:#042C58;border:1px solid black;color:#ffffff;height:40px;">
+        <h4>Payment Information</h4>
+      </div>
+    </div><br/>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="form-group">
+          <%= label_tag :card_number, "Credit Card Number" %>*
+          <%= text_field_tag :card_number,nil,:class=>"form-control",:maxlength => "16",:onkeydown => "isNumber(this);" %>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="form-group">
+          <%= label_tag :card_code, "Security Code" %>*
+          <%= text_field_tag :card_code,nil,:class=>"form-control",:onkeydown => "isNumber(this);" %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="form-group">
+          <%= label_tag :card_month, "Card Expiration" %>*
+          <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month",:class=>"form-control"} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="form-group">
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year",:class=>"form-control"} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <%= check_box_tag :terms %> I agree to terms and conditions
+        </div>
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <%= f.submit :save, :class => "btn btn-success" %>
+    </div>

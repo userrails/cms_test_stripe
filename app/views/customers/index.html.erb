@@ -1,0 +1,27 @@
+<%= link_to "New Customer", new_customer_path %>
+
+<% if @customers.present? %>
+  <table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Date Of Birth</th>
+  </tr>
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= "#{customer.try(:first_name)} #{customer.try(:last_name)} " %></td>
+    <td><%= customer.try(:email) %></td>
+    <td><%= customer.try(:address) %></td>
+    <td><%= customer.try(:dob) %></td>
+    <td>
+    <%= link_to "Destroy", customer_path(customer.id), :data => {:confirm => "Are you sure to delete this customer?", :method => :delete} %>
+    |
+    <%= link_to "Edit", edit_customer_path(customer.id) %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+  <p>No customers found.</p>
+<% end %>

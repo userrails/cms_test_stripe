@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Management</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "https://js.stripe.com/v1/", 'application' %>
+  <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= render :partial => "layouts/notice" %>
+  <%= yield %>
+
+</body>
+</html>

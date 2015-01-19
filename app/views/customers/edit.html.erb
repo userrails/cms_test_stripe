@@ -1,0 +1,7 @@
+<div class="well">
+  <h4>Customer</h4>
+  <%= form_for @customer, :role=>"form", :html => {:id => "new_customer"}, :method => "PUT" do |f| %>
+    <%= render :partial => "form", locals: {:f => f} %>
+  <% end %>
+</div>
+<%= render :partial => "script" %>
